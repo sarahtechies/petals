@@ -190,33 +190,33 @@ require_once("myclass.php");
                                     </tr>
                                     <tr>
                                         <th>A</th>
-                                        <td><input type="number" name="gradeA" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkA" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="A" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="ar" value="Excellent" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>B</th>
-                                        <td><input type="number" name="gradeb" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkB" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="B" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="br" value="V.good" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>C</th>
-                                        <td><input type="number" name="gradeC" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkC" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="C" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="cr" value="Good" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>D</th>
-                                        <td><input type="number" name="gradeD" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkD" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="D" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="dr" value="Average" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>E</th>
-                                        <td><input type="number" name="gradeE" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkE" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="E" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="er" value="Poor" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>F</th>
-                                        <td><input type="number" name="gradeF" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="remarkF" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="F" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="fr" value="Fail" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
@@ -412,8 +412,10 @@ require_once("myclass.php");
 <script src="../dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="../dist/js/demo.js"></script> -->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) --
-
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script>
+    <?= $pro->Alert() ?>
+</script>
         <script>
             $(function() {
                 $('.select2').select2()

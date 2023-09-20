@@ -265,42 +265,71 @@ function SqLx1($table, $col, $val, $ret){
 
 
     public function resultSetup(){
-        global $con;
+        global $con, $count, $report;
 
         $ca1 = $_POST['ca1'];
         $ca2 = $_POST['ca2'];
         $ca3 = $_POST['ca3'];
         $exam = $_POST['exam'];
+       
         
-       $sql = "INSERT INTO results_setup(ca1, ca2, ca3, exam) VALUES('$ca1', '$ca2', '$ca3', '$exam')";
-       mysqli_query($con, $sql);
+        
+      $con->query ("UPDATE results_setup SET ca1='$ca1', ca2='$ca2', ca3='$ca3', exam='$exam' WHERE sn = 1");
+      return;
+
+    }
+
+function GradeSet(){
+    global $con,$report,$count;
+       $A = $_POST['A'];
+        $B = $_POST['B'];
+        $C = $_POST['C'];
+        $D = $_POST['D'];
+        $E = $_POST['E'];
+        $F = $_POST['F'];
+        $ar = $_POST['ar'];
+        $br = $_POST['br'];
+        $cr = $_POST['cr'];
+        $dr = $_POST['dr'];
+        $er = $_POST['er'];
+        $fr = $_POST['fr'];
+
+      $con->query ("UPDATE results_setup SET A='$A', B='$B', C='$C', D='$D', E='$E', F='$F', ar='$ar', br='$br', cr='$cr', dr='$dr', er='$er', fr='$fr' WHERE sn = 1");
+      
+
+       $report = 'operation successfully'; $count = 1; return;
 
         return;
     }
 
-    function GradeSet(){
+
+
+    //function GradeSet(){
        
-        global $con;
-        if($score >= 75){
-            $grade = 'A';
-        }
-        elseif($score >= 60){
-            $grade = 'B';
-        }
-        elseif($score >= 50){
-            $grade = 'C';
-        }
-        elseif($score >= 45){
-            $grade = 'D';
-        }
-        elseif($score >= 40){
-            $grade = 'E';
-        }
-        elseif($score >= 0){
-            $grade = 'F';
-        }
-        return $grade;
-    }
+       // global $con, $count, $report;
+        //if($score >= 75){
+           // $grade = 'A';
+        //}
+        //elseif($score >= 60){
+            //$grade = 'B';
+        //}
+        //elseif($score >= 50){
+            //$grade = 'C';
+       // }
+        //elseif($score >= 45){
+            //$grade = 'D';
+        //}
+        //elseif($score >= 40){
+            //$grade = 'E';
+        //}
+        //elseif($score >= 0){
+           // $grade = 'F';
+        //}
+        //else{
+           // $report = 'invalid input'; $count = 1; return;
+        //}
+        //return $grade;
+   // }
 
     function RemarkSet($remarks){
         $remarks = '';
@@ -322,6 +351,9 @@ function SqLx1($table, $col, $val, $ret){
         }
         elseif($total >= 0){
             $remarks = 'Fail';
+        }
+        else{
+            $report = 'invalid input'; $count = 1; return;
         }
         return $remarks;
     }
