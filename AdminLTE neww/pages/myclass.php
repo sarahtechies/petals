@@ -66,6 +66,9 @@ class Profile{
                  elseif (array_key_exists('RemarkSet', $_POST)) {
                     $this->RemarkSet();
                 }
+                 elseif (array_key_exists('schoolInfo', $_POST)) {
+                    $this->schoolInfo();
+                }
                 
         }
     public function Signup(){
@@ -466,6 +469,23 @@ function Addresult(){
         mysqli_query($con, $sql);
     }
     $report = 'results added successfully';
+    return;
+}
+
+
+ public function schoolInfo(){
+    global $con, $count, $report;
+    $school_name = $_POST['school_name'];
+    $email = $_POST['email'];
+    $website = $_POST['website'];
+    $phone = $_POST['phone'];
+    $alt_phone = $_POST['alt_phone'];
+    $motto = $_POST['motto'];
+    $address = $_POST['address'];
+
+    $sql = "INSERT INTO school_info(school_name, email, website, phone, alt_phone, motto, address) VALUES('$school_name', '$email', '$website', '$phone', '$alt_phone', '$motto', '$address')";
+    mysqli_query($con, $sql);
+    $report = "Submitted successfully"; $count = 1;
     return;
 }
 

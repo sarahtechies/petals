@@ -350,23 +350,23 @@ require_once("myclass.php");
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="" class="row">
+                        <form method="POST" class="row">
                             <div class="col-md-12 form-group">
                                 <label for="">School Name</label>
                                 <input type="text" class="form-control" value="SchoolPetal International School">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">E-mail</label>
-                                <input type="email" class="form-control" disabled="" value="ogbajigodwin@gmail.com">
+                                <input type="email" class="form-control" disabled="" value="akintadeimoleayo6@gmail.com">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Website</label>
-                                <input type="url" class="form-control" placeholder="School website" value="">
+                                <input type="url" class="form-control" placeholder="School website" value="www.schoolportal/international school">
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="Phone Number" value="08150905504">
+                                <input type="text" class="form-control" placeholder="Phone Number" value="07064502631">
                             </div>
 
                             <div class="col-md-6 form-group">
@@ -386,7 +386,7 @@ require_once("myclass.php");
 
 
                             <div class="form-group col-md-12 mb-0 ">
-                                <button type="button" class="btn btn-secondary float-right">Update School Info</button>
+                                <button type="button" class="btn btn-secondary float-right" name="schoolInfo">Update School Info</button>
                             </div>
                         </form>
 
