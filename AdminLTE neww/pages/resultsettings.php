@@ -128,7 +128,8 @@ require_once("myclass.php");
             </div>
         </div>
     </div>
-<?php  $con->query("SELECT * FROM results_setup");
+<?php
+  $sql = $con->query ("SELECT * FROM results_setup WHERE sn=1 ");
 $rows = $sql->fetch_assoc();
  ?>
 
@@ -197,28 +198,28 @@ $rows = $sql->fetch_assoc();
                                     </tr>
                                     <tr>
                                         <th>B</th>
-                                        <td><input type="number" name="B" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="br" value="<?= $rows['B'] ?>" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="B" value="<?= $rows['B'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="br" value="<?= $rows['br'] ?>" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>C</th>
-                                        <td><input type="number" name="C" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="cr" value="<?= $rows['C'] ?>"  class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="C" value="<?= $rows['C'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="cr" value="<?= $rows['cr'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>D</th>
-                                        <td><input type="number" name="D" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="dr" value="<?= $rows['D'] ?>"  class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="D" value="<?= $rows['D'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="dr" value="<?= $rows['dr'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>E</th>
-                                        <td><input type="number" name="E" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="er" value="<?= $rows['E'] ?>"  class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="E" value="<?= $rows['E'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="er" value="<?= $rows['er'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>F</th>
-                                        <td><input type="number" name="F" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="fr" value="<?= $rows['F'] ?>" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="F" value="<?= $rows['F'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="fr" value="<?= $rows['fr'] ?>" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
