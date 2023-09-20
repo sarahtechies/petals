@@ -128,7 +128,9 @@ require_once("myclass.php");
             </div>
         </div>
     </div>
-
+<?php  $con->query("SELECT * FROM results_setup");
+$rows = $sql->fetch_assoc();
+ ?>
 
 
 
@@ -146,19 +148,19 @@ require_once("myclass.php");
                         <form method="POST" class="row" id="updateCa">
                             <div class="col-md-4 col-6 form-group">
                                 <label>CA 1</label>
-                                <input type="number" name="ca1" class="form-control" placeholder="CA 1">
+                                <input type="number" name="ca1" value="<?= $rows['ca1'] ?>" class="form-control" placeholder="CA 1">
                             </div>
                             <div class="col-md-4 col-6 form-group">
                                 <label>CA 2</label>
-                                <input type="number" name="ca2" class="form-control" placeholder="CA 2">
+                                <input type="number" name="ca2" value="<?= $rows['ca2'] ?>" class="form-control" placeholder="CA 2">
                             </div>
                             <div class="col-md-4 col-6 form-group">
                                 <label>CA 3</label>
-                                <input type="number" name="ca3" class="form-control" placeholder="CA 3">
+                                <input type="number" name="ca3" value="<?= $rows['ca3'] ?>" class="form-control" placeholder="CA 3">
                             </div>
                             <div class="col-md-6 col-6 form-group">
                                 <label>Exam</label>
-                                <input type="number" name="exam" class="form-control" placeholder="Exam">
+                                <input type="number" name="exam" value="<?= $rows['examg'] ?>" class="form-control" placeholder="Exam">
                             </div>
                             <div class="col-md-6 col-12 form-group">
                                 <button class="btn btn-secondary mt-md-4 float-right updateCa" name="resultSetup">Save</button>
