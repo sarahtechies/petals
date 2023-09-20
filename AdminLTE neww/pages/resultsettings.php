@@ -160,7 +160,7 @@ $rows = $sql->fetch_assoc();
                             </div>
                             <div class="col-md-6 col-6 form-group">
                                 <label>Exam</label>
-                                <input type="number" name="exam" value="<?= $rows['examg'] ?>" class="form-control" placeholder="Exam">
+                                <input type="number" name="exam" value="<?= $rows['exam'] ?>" class="form-control" placeholder="Exam">
                             </div>
                             <div class="col-md-6 col-12 form-group">
                                 <button class="btn btn-secondary mt-md-4 float-right updateCa" name="resultSetup">Save</button>
@@ -192,33 +192,33 @@ $rows = $sql->fetch_assoc();
                                     </tr>
                                     <tr>
                                         <th>A</th>
-                                        <td><input type="number" name="A" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="ar" value="Excellent" class="form-control form-control-sm"></td>
+                                        <td><input type="number" name="A" value="<?= $rows['A'] ?>" class="form-control form-control-sm" style="width: 60px"></td>
+                                        <td><input type="text" name="ar" value="<?= $rows['ar'] ?>" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>B</th>
                                         <td><input type="number" name="B" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="br" value="V.good" class="form-control form-control-sm"></td>
+                                        <td><input type="text" name="br" value="<?= $rows['B'] ?>" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>C</th>
                                         <td><input type="number" name="C" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="cr" value="Good" class="form-control form-control-sm"></td>
+                                        <td><input type="text" name="cr" value="<?= $rows['C'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>D</th>
                                         <td><input type="number" name="D" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="dr" value="Average" class="form-control form-control-sm"></td>
+                                        <td><input type="text" name="dr" value="<?= $rows['D'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>E</th>
                                         <td><input type="number" name="E" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="er" value="Poor" class="form-control form-control-sm"></td>
+                                        <td><input type="text" name="er" value="<?= $rows['E'] ?>"  class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <th>F</th>
                                         <td><input type="number" name="F" class="form-control form-control-sm" style="width: 60px"></td>
-                                        <td><input type="text" name="fr" value="Fail" class="form-control form-control-sm"></td>
+                                        <td><input type="text" name="fr" value="<?= $rows['F'] ?>" class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
