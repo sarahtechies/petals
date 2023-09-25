@@ -233,7 +233,7 @@ require("myclass.php");
                          } ?>
                     </tbody>
                   </table>
-                  <input type="" name="class" value="<?= @$class ?>" class="form-control">
+                  <input type="" name="class" value="<?= @$category ?>" class="form-control">
                   <input type="" name="subject" value="<?= @$subject ?>" class="form-control">
 
 

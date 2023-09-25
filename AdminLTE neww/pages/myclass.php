@@ -466,7 +466,7 @@ function Addresult(){
         if(empty($c1) || empty($c2) || empty($exa)){
             $report = 'input all fields'; $count = 1; return;
         }
-        $sql = "INSERT INTO add_results(studentid, class, subject ca1, ca2, exam, total) VALUES('$student', '$cla', '$subject' '$c1', '$c2','$exa', '$total')";
+        $sql = "INSERT INTO add_results(studentid, class, subject, ca1, ca2, exam, total) VALUES('$student', '$cla', '$subject', '$c1', '$c2','$exa', '$total')";
         mysqli_query($con, $sql);
     }
     $report = 'results added successfully';
