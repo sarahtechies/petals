@@ -483,8 +483,7 @@ function Addresult(){
     $motto = $_POST['motto'];
     $address = $_POST['address'];
 
-    $sql = "INSERT INTO school_info(school_name, email, website, phone, alt_phone, motto, address) VALUES('$school_name', '$email', '$website', '$phone', '$alt_phone', '$motto', '$address')";
-    mysqli_query($con, $sql);
+     $con->query ("UPDATE school_info SET school_name='$school_name', email='$email', website='$website', phone='$phone', alt_phone='$alt_phone', motto='$motto', address='$address', WHERE sn = 1");
     $report = "Submitted successfully"; $count = 1;
     return;
 }

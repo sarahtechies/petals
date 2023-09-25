@@ -136,7 +136,7 @@ require_once("myclass.php");
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="" id="create_new_session">
+                        <form method="POST" id="create_new_session">
                             <div class="form-group">
                                 <label for="">Session</label>
                                 <select id="session_id" class="form-control select2bs4 select2-hidden-accessible" data-select2-id="session_id" tabindex="-1" aria-hidden="true">
@@ -155,7 +155,7 @@ require_once("myclass.php");
                                 </select><span class="select2 select2-container select2-container--bootstrap4" dir="ltr" data-select2-id="1" style="width: 568.958px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-session_id-container"><span class="select2-selection__rendered" id="select2-session_id-container" role="textbox" aria-readonly="true" class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
                             </div>
                             <div class="form-group mb-0 float-right">
-                                <button type="submit" class="btn btn-secondary create_session_btn">Create Session</button>
+                                <button type="submit" class="btn btn-secondary create_session_btn" name="AddTerm">Create Session</button>
                             </div>
                         </form>
                     </div>
