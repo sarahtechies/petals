@@ -457,7 +457,7 @@ function Addresult(){
     while ($i < count($studentid)){
         $e = $i++;
 
-        $student = $studentid[$e];
+        $studentid = $studentid[$e];
         $ca1 = $ca1[$e];
         $ca2 = $ca2[$e];
         $exam = $exam[$e];

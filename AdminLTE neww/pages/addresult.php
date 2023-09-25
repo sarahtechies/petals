@@ -156,10 +156,10 @@ require("myclass.php");
             <div class="col-md-12 col-sm-12 ">
               <div class="x_panel">
                 <div class="card-body">
-                  <form method="post">
+                  <form method="POST">
                     <div class="form-group">
                       <label>Select Class</label>
-                      <select name="class" id="term" class="form-control select2bs4" required>
+                      <select name="category" id="term" class="form-control select2bs4" required>
                         <option value="">Choose a Class</option>
                         <?php $i = 1;
                         $sql = $con->query("SELECT * FROM class ");
@@ -195,6 +195,7 @@ require("myclass.php");
                         <th>CA1</th>
                         <th>CA2</th>
                         <th>Exam</th>
+                        <th>Remarks</th>
 
 
                       </tr>
@@ -202,15 +203,15 @@ require("myclass.php");
                     <tbody>
                       <?php
 
-                      if (isset($_POST['class'])) {
+                      if (isset($_POST['category'])) {
                        
-                        $class = $_POST['class'];
+                        $category = $_POST['category'];
                         $subject = $_POST['subject'];
                         
                         
 
                         $i = 1;
-                        $sql = $con->query("SELECT * FROM students WHERE class = '$class'");
+                        $sql = $con->query("SELECT * FROM students WHERE category = '$category'");
                        
                         while ($rows = mysqli_fetch_assoc($sql)) {
                           
@@ -232,8 +233,8 @@ require("myclass.php");
                          } ?>
                     </tbody>
                   </table>
-                  <input type="hidden" name="class" value="<?= @$class ?>" class="form-control">
-                  <input type="hidden" name="subject" value="<?= @$subject ?>" class="form-control">
+                  <input type="" name="class" value="<?= @$class ?>" class="form-control">
+                  <input type="" name="subject" value="<?= @$subject ?>" class="form-control">
 
 
 
