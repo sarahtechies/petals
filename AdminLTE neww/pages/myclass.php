@@ -457,15 +457,16 @@ function Addresult(){
     while ($i < count($studentid)){
         $e = $i++;
 
-        $studentid = $studentid[$e];
-        $ca1 = $ca1[$e];
-        $ca2 = $ca2[$e];
-        $exam = $exam[$e];
-        $total =(int)$ca1 + (int)$ca2 + (int)$exam;
-        if(empty($ca1) || empty($ca2) || empty($exam)){
+        $student = $studentid[$e];
+        $c1 = $ca1[$e];
+        $c2 = $ca2[$e];
+        $cla = $class[$e];
+        $exa = $exam[$e];
+        $total =(int)$c1 + (int)$c2 + (int)$exa;
+        if(empty($c1) || empty($c2) || empty($exa)){
             $report = 'input all fields'; $count = 1; return;
         }
-        $sql = "INSERT INTO add_results(studentid, class, subject, ca1, ca2, exam) VALUES('$studentid', '$class', '$subject', '$ca1', '$ca2', '$exam', '$total')";
+        $sql = "INSERT INTO add_results(studentid, class, subject ca1, ca2, exam, total) VALUES('$student', '$cla', '$subject' '$c1', '$c2','$exa', '$total')";
         mysqli_query($con, $sql);
     }
     $report = 'results added successfully';

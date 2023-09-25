@@ -238,7 +238,7 @@ require("myclass.php");
 
 
 
-                  <button type="submit" class="btn btn-primary" name="AddResult" style="width:100%">Submit Result</button>
+                  <button type="submit" class="btn btn-primary" name="Addresult" style="width:100%">Submit Result</button>
                 </form>
               </div>
             </div>
