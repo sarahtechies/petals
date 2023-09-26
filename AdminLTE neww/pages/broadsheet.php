@@ -172,7 +172,7 @@ require("myclass.php");
             
            </tr>
            <tr>
-            <th>#</th>
+            
             <th>Subjects</th>
             <th class="ca1">CA1</th>
             <th class="ca2">CA2</th>
@@ -209,7 +209,12 @@ require("myclass.php");
              </tr>
 
              <tr>
-
+             <th colspan="12"><p>Vacation Date:<br>Teacher's Comment:</p></br>
+             <p class="text-margin:400px">Resumption Date:</p>
+             </th>
+             
+             
+             
 
                 </tr>
           </thead>
