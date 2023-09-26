@@ -197,7 +197,7 @@ require_once("myclass.php");
                                     <td> null</td>
                                     <th>
                                         <button class="btn btn-xs btn-primary editTermInfo" data-data="{&quot;id&quot;:19,&quot;school_id&quot;:&quot;2&quot;,&quot;session_id&quot;:&quot;7&quot;,&quot;term&quot;:&quot;1&quot;,&quot;year&quot;:&quot;2023&quot;,&quot;close&quot;:null,&quot;resume&quot;:null,&quot;status&quot;:&quot;0&quot;,&quot;paid&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;}"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="/control/setting/renew/19" class="btn btn-xs btn-danger"> Pay to Act </a>
+                                        <a href="/control/setting/renew/19" class="btn btn-xs btn-danger"> Activate </a>
                                     </th>
                                 </tr>
                             
@@ -207,7 +207,7 @@ require_once("myclass.php");
                                     <td> null</td>
                                     <th>
                                         <button class="btn btn-xs btn-primary editTermInfo" data-data="{&quot;id&quot;:20,&quot;school_id&quot;:&quot;2&quot;,&quot;session_id&quot;:&quot;7&quot;,&quot;term&quot;:&quot;2&quot;,&quot;year&quot;:&quot;2023&quot;,&quot;close&quot;:null,&quot;resume&quot;:null,&quot;status&quot;:&quot;0&quot;,&quot;paid&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;}"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="/control/setting/renew/20" class="btn btn-xs btn-danger"> Pay to Act </a>
+                                        <a href="/control/setting/renew/20" class="btn btn-xs btn-danger"> Activate </a>
                                     </th>
                                 </tr>
                             
@@ -217,7 +217,7 @@ require_once("myclass.php");
                                     <td> null</td>
                                     <th>
                                         <button class="btn btn-xs btn-primary editTermInfo" data-data="{&quot;id&quot;:21,&quot;school_id&quot;:&quot;2&quot;,&quot;session_id&quot;:&quot;7&quot;,&quot;term&quot;:&quot;3&quot;,&quot;year&quot;:&quot;2023&quot;,&quot;close&quot;:null,&quot;resume&quot;:null,&quot;status&quot;:&quot;0&quot;,&quot;paid&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-08-07T10:16:49.000000Z&quot;}"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="/control/setting/renew/21" class="btn btn-xs btn-danger"> Pay to Act </a>
+                                        <a href="/control/setting/renew/21" class="btn btn-xs btn-danger"> Activate </a>
                                     </th>
                                 </tr>
                             
@@ -258,7 +258,7 @@ require_once("myclass.php");
                                     <td> 2023-05-01</td>
                                     <th>
                                         <button class="btn btn-xs btn-primary editTermInfo" data-data="{&quot;id&quot;:11,&quot;school_id&quot;:&quot;2&quot;,&quot;session_id&quot;:&quot;4&quot;,&quot;term&quot;:&quot;2&quot;,&quot;year&quot;:&quot;2022&quot;,&quot;close&quot;:&quot;2023-04-06&quot;,&quot;resume&quot;:&quot;2023-05-01&quot;,&quot;status&quot;:&quot;0&quot;,&quot;paid&quot;:&quot;0&quot;,&quot;created_at&quot;:&quot;2022-04-08T15:57:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-04-04T09:22:23.000000Z&quot;}"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="/control/setting/renew/11" class="btn btn-xs btn-danger"> Pay to Act </a>
+                                        <a href="/control/setting/renew/11" class="btn btn-xs btn-danger"> Activate </a>
                                     </th>
                                 </tr>
                             

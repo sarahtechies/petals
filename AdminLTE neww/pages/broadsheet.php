@@ -161,7 +161,7 @@ require("myclass.php");
             <td colspan="12"></td>
             <h3 class="text-center">EL-SHADDAI INTERNATIONAL GROUP OF SCHOOLS,AKURE</h3>
             <p class="text-center">TERMLY CONTINOUS ASSESSMENT</p>
-            <p class="text-center">FIRST TIME,2023/2024 ACADEMIC SESSION
+            <p class="text-center">FIRST TERM,2023/2024 ACADEMIC SESSION
            <tr>
             
             <th colspan="3">Name:</th>
@@ -209,8 +209,14 @@ require("myclass.php");
              </tr>
 
              <tr>
-             <th colspan="12"><p>Vacation Date:<br>Teacher's Comment:</p></br>
-             <p class="text-margin:400px">Resumption Date:</p>
+                
+             <th colspan="12">
+                <div style="display:flex">
+                <p>Vacation Date:<br>Teacher's Comment:</p></br>
+             <p style="margin-left:800px">Resumption Date:
+             <br />Principal's Comment:</p>
+          
+             </div>
              </th>
              
              

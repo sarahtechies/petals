@@ -69,6 +69,9 @@ class Profile{
                  elseif (array_key_exists('schoolInfo', $_POST)) {
                     $this->schoolInfo();
                 }
+                elseif (array_key_exists('Activate', $_POST)) {
+                    $this->Activate();
+                }
                 
         }
     public function Signup(){
@@ -487,6 +490,13 @@ function Addresult(){
      $con->query ("UPDATE school_info SET school_name='$school_name', email='$email', website='$website', phone='$phone', alt_phone='$alt_phone', motto='$motto', address='$address', WHERE sn = 1");
     $report = "Submitted successfully"; $count = 1;
     return;
+}
+
+function Activate($sn){
+    global $con;
+    $sql = $con->query ("UPDATE terms SET status= 0");
+   "UPDATE terms SET status=1 WHERE sn='$sn'";
+   return;
 }
 
     
