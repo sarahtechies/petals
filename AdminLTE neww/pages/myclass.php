@@ -69,7 +69,7 @@ class Profile{
                  elseif (array_key_exists('schoolInfo', $_POST)) {
                     $this->schoolInfo();
                 }
-                elseif (array_key_exists('Activate', $_POST)) {
+                elseif (array_key_exists('activate', $_POST)) {
                     $this->Activate();
                 }
                 
@@ -492,10 +492,13 @@ function Addresult(){
     return;
 }
 
-function Activate($sn){
-    global $con;
-    $sql = $con->query ("UPDATE terms SET status= 0");
-   "UPDATE terms SET status=1 WHERE sn='$sn'";
+function Activate(){
+    global $con, $count, $report;
+    $sn = $_POST['activate'];
+    $con->query ("UPDATE terms SET status = 0");
+    $con->query("UPDATE terms SET status =1 WHERE sn='$sn'");
+    $report = 'term updated successfully' . $sn;
+    echo $sn;
    return;
 }
 
