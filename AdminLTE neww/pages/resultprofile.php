@@ -1,6 +1,8 @@
     <?php
 
 require_once("myclass.php");
+
+$pro->checkResultSum();
 ?>
 
 
@@ -147,7 +149,7 @@ require_once("myclass.php");
 
                                     <?php $i = 1;
                                     $sql = $con->query("SELECT * FROM add_results");
-                                    while ($rows = mysqli_fetch_assoc($sql));
+                                    while ($rows = mysqli_fetch_assoc($sql)) {
                                     ?>
 
 
@@ -156,11 +158,13 @@ require_once("myclass.php");
                             <td><?= $i++ ?></td>
                             <td><?= $pro->SqLx('students', 'sn', $rows['studentid'], 'surname') ?> <?= $pro->SqLx('students', 'sn', $rows['studentid'], 'firstname') ?></td>
                             <td><?= $pro->SqLx1('terms', 'sn', 1, 'session') ?></td>
-                            <td>sss 1</td>
-                            <td>7</td>
-                            <td>16 Aug, 2022</td>
+                            <td><?= $pro->SqLx('terms', 'sn', $rows['stid'], 'term') ?> <?= $rows['term'] ?></td>
+                            <td><?= $pro->SqLx('students', 'sn', $rows['stid'], 'category') ?></td>
+                            <td><?= $rows['created_at'] ?></td>
                             <td><a class="btn btn-xs btn-info" href="/control/view-result/284"><i class="fas fa-eye"></i> View</a></td>
                         </tr>
+
+                        <?php } ?>
                     
 
 
@@ -208,4 +212,6 @@ require_once("myclass.php");
 <script src="../dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="../dist/js/demo.js"></script> -->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) --
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+</body>
+</html>
