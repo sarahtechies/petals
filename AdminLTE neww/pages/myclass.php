@@ -72,6 +72,9 @@ class Profile{
                 elseif (array_key_exists('activate', $_POST)) {
                     $this->Activate();
                 }
+                elseif (array_key_exists('resultSum', $_POST)) {
+                    $this->resultSum();
+                }
                 
         }
     public function Signup(){
@@ -504,12 +507,22 @@ function Activate(){
 
 function resultSum(){
     global $con;
-    $sql = "SELECT FROM results_sum WHERE stuid='$stuid' AND term='$term' AND session='$session'";
-    if(mysqli_num_rows(sql)= 0){
-        "INSERT INTO results_sum(stuid, term, session) VALUES ('$stuid', '$term', '$session')";
+    $sql = $con->query("SELECT *FROM $table WHERE $col = '$val'");
+        $sql = "SELECT * FROM results_sum WHERE stid='$stid' AND term='$term' AND session='$session'";
+    if(mysqli_num_rows($sql) == 0){
+    $sql = "INSERT INTO results_sum(stid, term, session) VALUES ('$stid', '$term', '$session')";
         mysqli_query($con, $sql);
-        return $sn;
+        $result = $rows['sn'];
+        return $result;
     }
+}
+
+function checkResultProfile($stid){
+    global $con;
+    $term = sqLx1('term', 'status', 'term');
+    $session = sqLx1('session', 'status', 'session');
+    $sql = $con->query("SELECT * FROM results_sum WHERE stid ='$stid' AND term = '$term' AND session = '$session'");
+    return mysqli_num_rows($sql);
 }
     
 }
