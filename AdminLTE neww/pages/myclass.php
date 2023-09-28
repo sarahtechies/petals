@@ -502,6 +502,15 @@ function Activate(){
    return;
 }
 
+function resultSum(){
+    global $con;
+    $sql = "SELECT FROM results_sum WHERE stuid='$stuid' AND term='$term' AND session='$session'";
+    if(mysqli_num_rows(sql)= 0){
+        "INSERT INTO results_sum(stuid, term, session) VALUES ('$stuid', '$term', '$session')";
+        mysqli_query($con, $sql);
+        return $sn;
+    }
+}
     
 }
 
