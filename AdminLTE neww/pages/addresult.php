@@ -181,7 +181,7 @@ require("myclass.php");
                       <select class="form-control" name="subject" required>
                         <option value="">Select Term</option>
                         <?php $i = 1;
-                        $sql = $con->query("SELECT * FROM terms");
+                        $sql = $con->query("SELECT * FROM terms WHERE status = 1");
                         while ($rows = $sql->fetch_assoc()) {
                           echo '<option value="' . $rows['sn'] . '">' . $rows['term'] . '</option>';
                         } ?>

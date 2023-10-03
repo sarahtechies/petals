@@ -452,6 +452,7 @@ function Addresult(){
     global $con, $count, $report;
 
     $studentid = $_POST['studentid'];
+     $resultid = $_POST['resultid'];
     $class = $_POST['class'];
     $subject = $_POST['subject'];
     $ca1 = $_POST['ca1'];
@@ -495,6 +496,20 @@ function Addresult(){
     return;
 }
 
+function realTerm($t){
+    $term = '';
+    if($t == 1) {
+        $term = 'First Term';
+    }
+    elseif($t == 2){
+        $term = 'Second Term';
+    }
+    elseif($t == 3){
+        $term = 'Third Term';
+    }
+    return $term;
+}
+
 function Activate(){
     global $con, $count, $report;
     $sn = $_POST['activate'];
@@ -515,6 +530,11 @@ function resultSum(){
         $result = $rows['sn'];
         return $result;
     }
+}
+
+function resultid(){
+    global $con;
+    $sql = SELECT
 }
 
 function checkResultProfile($stid, $class){
