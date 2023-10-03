@@ -534,7 +534,7 @@ function resultSum(){
 
 function resultid(){
     global $con;
-    $sql = SELECT
+    
 }
 
 function checkResultProfile($stid, $class){

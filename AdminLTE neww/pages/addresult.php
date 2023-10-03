@@ -205,7 +205,7 @@ require("myclass.php");
                         <th>CA2</th>
                         <th>Exam</th>
                         <th>Remarks</th>
-
+                        
 
                       </tr>
                     </thead>
@@ -249,6 +249,43 @@ require("myclass.php");
 
                   <button type="submit" class="btn btn-primary" name="Addresult" style="width:100%">Submit Result</button>
                 </form>
+                <form method = "POST">
+                  <table class="table">
+                    <thead>
+                        <th colspan="12">sn</th>
+                        <th colspan="12">Student Name</th>
+                        <th colspan="12">Subject</th>
+                        <th colspan="12">Class</th>
+                        <th colspan="12">CA1</th>
+                        <th colspan="12">CA2</th>
+                        <th colspan="12">Exam</th>
+                        <th colspan="12">Total</th>
+                        <th colspan="12">Remarks</th>
+                        
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody id="student_list_body">
+                                <?php $i=1; $sql = $con->query("SELECT * FROM  add_results");
+                                        while($rows = mysqli_fetch_assoc($sql)){ ?>
+
+                                             <tr>
+                                                 <td colspan="12"><?=$i++ ?></td> 
+                                         
+                                          <td colspan="12"><?=$pro->sqLx('students','sn', $rows['firstname'],'surname') ?></td>
+                                           <td colspan="12"><?=$rows['Subject'] ?></td>
+                                           <td colspan="12"><?=$rows['Class'] ?></td>
+                                            <td colspan="12"><?=$rows['CA1'] ?></td>
+                                             <td colspan="12"><?=$rows['CA2'] ?></td>
+                                              <td colspan="12"><?=$rows['Exam'] ?></td>
+                                              <td colspan="12"><?=$rows['Total'] ?></td>
+                                              <td colspan="12"><?=$rows['Remarks'] ?></td>
+                                           
+                                    </tr>
+                                       <?php }
+
+                                    ?>
+                                    </form>
               </div>
             </div>
           </div>
