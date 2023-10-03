@@ -158,7 +158,7 @@ $pro->checkResultSum();
                             <td><?= $i++ ?></td>
                             <td><?= $pro->SqLx('students', 'sn', $rows['stid'], 'surname') ?> <?= $pro->SqLx('students', 'sn', $rows['stid'], 'firstname') ?></td>
                             <td><?= $pro->SqLx1('terms', 'sn', 1, 'session') ?></td>
-                            <td><?=$pro->SqLx('terms', 'sn', $rows['term'], 'terms') ?>
+                            <td><?= $pro->($rows[('term')]) ?>
                             <td><?=$pro->SqLx('class', 'sn', $rows['class'], 'category') ?></td>
                             <td><?= $rows['created_at'] ?></td>
                             <td><a class="btn btn-xs btn-info" href="/control/view-result/284"><i class="fas fa-eye"></i> View</a></td>

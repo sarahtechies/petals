@@ -517,13 +517,13 @@ function resultSum(){
     }
 }
 
-function checkResultProfile($stid){
+function checkResultProfile($stid, $class){
     global $con;
     $term = $this->sqLx1('terms', 'status', 1, 'term');
     $session = $this->sqLx1('terms', 'status', 1, 'session');
-    $sql = $con->query("SELECT * FROM results_sum WHERE stid ='$stid' AND term = '$term' AND session = '$session'");
+    $sql = $con->query("SELECT * FROM results_sum WHERE stid ='$stid' AND term = '$term' AND class = '$class' AND session = '$session'");
     if(mysqli_num_rows($sql) == 0){
-        $con->query("INSERT INTO results_sum(stid, term, session) VALUES ('$stid', '$term', '$session')");
+        $con->query("INSERT INTO results_sum(stid, term, class, session) VALUES ('$stid', '$term', '$class', '$session')");
         return;
     }
 }
@@ -534,7 +534,8 @@ function checkResultSum(){
     $sql = $con->query("SELECT * FROM students");
     while($rows = mysqli_fetch_assoc($sql)){
         $stid = $rows['sn'];
-       $this->checkResultProfile($stid); 
+        $class = $rows['category'];
+       $this->checkResultProfile($stid, $class); 
     }
     return;
 
