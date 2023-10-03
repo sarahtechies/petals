@@ -148,7 +148,7 @@ $pro->checkResultSum();
 
 
                                     <?php $i = 1;
-                                    $sql = $con->query("SELECT * FROM add_results");
+                                    $sql = $con->query("SELECT * FROM results_sum");
                                     while ($rows = mysqli_fetch_assoc($sql)) {
                                     ?>
 
@@ -156,10 +156,10 @@ $pro->checkResultSum();
                                     
                         <tr>
                             <td><?= $i++ ?></td>
-                            <td><?= $pro->SqLx('students', 'sn', $rows['studentid'], 'surname') ?> <?= $pro->SqLx('students', 'sn', $rows['studentid'], 'firstname') ?></td>
+                            <td><?= $pro->SqLx('students', 'sn', $rows['stid'], 'surname') ?> <?= $pro->SqLx('students', 'sn', $rows['stid'], 'firstname') ?></td>
                             <td><?= $pro->SqLx1('terms', 'sn', 1, 'session') ?></td>
-                            <td><?= $pro->SqLx('terms', 'sn', $rows['stid'], 'term') ?> <?= $rows['term'] ?></td>
-                            <td><?= $pro->SqLx('students', 'sn', $rows['stid'], 'category') ?></td>
+                            <td><?=$pro->SqLx('terms', 'sn', $rows['term'], 'terms') ?>
+                            <td><?=$pro->SqLx('class', 'sn', $rows['class'], 'category') ?></td>
                             <td><?= $rows['created_at'] ?></td>
                             <td><a class="btn btn-xs btn-info" href="/control/view-result/284"><i class="fas fa-eye"></i> View</a></td>
                         </tr>
