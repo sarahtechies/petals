@@ -233,6 +233,9 @@ require("myclass.php");
                             <td><a href="studentprofile.php?sn=<?= $rows['sn'] ?>"><?= $rows['surname'] ?></a></td>
                             <td><?= $rows['firstname'] ?> <input type="hidden" name="studentid[]" value="<?= $rows['sn'] ?>" required></td>
 
+                            <input type="hidden" name="resultid" value= "<?= $pro->resultid($rows['sn'])?>" >
+
+                
                             <td><input type="number" name="ca1[]" min="0" max="20" class="form-control" required></td>
                             <td><input type="number" name="ca2[]" min="0" max="20" class="form-control"></td>
                             <td><input type="number" name="exam[]" min="0" max="60" class="form-control"></td>
@@ -273,14 +276,14 @@ require("myclass.php");
                                              <tr>
                                                  <td colspan="12"><?=$i++ ?></td> 
                                          
-                                          <td colspan="12"><?=$pro->sqLx('students','sn', $rows['sn'],'firstname')?><?=$pro->sqLx1('students','sn', $rows['sn'],'lastname')?></td>
-                                           <td colspan="12"><?=$pro->sqLx('subjects', 'sn', $rows['subject'], 'subjects')?></td>
-                                           <td colspan="12"><?=$pro->sqLx('class', 'sn', $rows['category'], 'class')?></td>
-                                            <td colspan="12"><?=$rows['CA1'] ?></td>
-                                             <td colspan="12"><?=$rows['CA2'] ?></td>
-                                              <td colspan="12"><?=$rows['Exam'] ?></td>
-                                              <td colspan="12"><?=$rows['Total'] ?></td>
-                                              <td colspan="12"><?=$rows['Remarks'] ?></td>
+                                          <td colspan="12"><?= $pro->sqLx('students', 'sn', $rows['sn'],'surname') ?></td>
+                                           <td colspan="12"><?= $rows['subject']?></td>
+                                           <td colspan="12"><?= $rows['class']?></td>
+                                            <td colspan="12"><?=$rows['ca1'] ?></td>
+                                             <td colspan="12"><?=$rows['ca2'] ?></td>
+                                              <td colspan="12"><?=$rows['exam'] ?></td>
+                                              <td colspan="12"><?=$rows['total'] ?></td>
+                                              
                                            
                                     </tr>
                                        <?php }

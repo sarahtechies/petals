@@ -466,7 +466,7 @@ function Addresult(){
 
         $student = $studentid[$e];
         $resultid = $this->resultid($student);
-        $result = $resultid[$e];
+        @$result = $resultid[$e];
         $c1 = $ca1[$e];
         $c2 = $ca2[$e];
         $term = $this->SqLx('terms', 'status', 1, 'term');
@@ -541,7 +541,7 @@ function resultid($stid){
 
     $sql = $con->query("SELECT * FROM results_sum WHERE term = '$term' AND session = '$session' AND stid = '$stid'");
     $rows = mysqli_fetch_assoc($sql);
-    $resultid = $rows['resultid'];
+    $resultid = $rows['sn'];
     return $resultid;
 
 }
