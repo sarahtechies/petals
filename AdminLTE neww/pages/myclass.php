@@ -452,7 +452,7 @@ function Addresult(){
     global $con, $count, $report;
 
     $studentid = $_POST['studentid'];
-     $resultid = $_POST['resultid'];
+    
     $class = $_POST['class'];
     $subject = $_POST['subject'];
     $ca1 = $_POST['ca1'];
@@ -465,6 +465,8 @@ function Addresult(){
         $e = $i++;
 
         $student = $studentid[$e];
+        $resultid = $this->resultid($student);
+        $result = $resultid[$e];
         $c1 = $ca1[$e];
         $c2 = $ca2[$e];
         $term = $this->SqLx('terms', 'status', 1, 'term');
@@ -473,7 +475,7 @@ function Addresult(){
         if(empty($c1) || empty($c2) || empty($exa)){
             $report = 'input all fields'; $count = 1; return;
         }
-        $sql = "INSERT INTO add_results(studentid, class, subject, ca1, ca2, term, exam, total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$term', '$exa', '$total')";
+        $sql = "INSERT INTO add_results(studentid, resultid, class, subject, ca1, ca2, term, exam, total) VALUES('$student', '$resultid', '$class', '$subject', '$c1', '$c2', '$term', '$exa', '$total')";
         mysqli_query($con, $sql);
     }
     $report = 'results added successfully';
@@ -532,9 +534,16 @@ function resultSum(){
     }
 }
 
-function resultid(){
+function resultid($stid){
     global $con;
-    
+    $term =$this->sqLx('terms', 'status', 1, 'term');
+    $session = $this->sqLx('terms', 'status', 1, 'session');
+
+    $sql = $con->query("SELECT * FROM results_sum WHERE term = '$term' AND session = '$session' AND stid = '$stid'");
+    $rows = mysqli_fetch_assoc($sql);
+    $resultid = $rows['resultid'];
+    return $resultid;
+
 }
 
 function checkResultProfile($stid, $class){
