@@ -156,6 +156,7 @@ require("myclass.php");
             <div class="col-md-12 col-sm-12 ">
               <div class="x_panel">
                 <div class="card-body">
+                  <?= $pro->resultid(24)?>
                   <form method="POST">
                     <div class="form-group">
                       <label>Select Class</label>
@@ -272,9 +273,9 @@ require("myclass.php");
                                              <tr>
                                                  <td colspan="12"><?=$i++ ?></td> 
                                          
-                                          <td><?=$pro->sqLx('students','sn', $rows['sn'],'firstname')?><?=$pro->sqLx('students','sn', $rows['sn'],'lastname')?></td>
-                                           <td colspan="12"><?=$rows['Subject'] ?></td>
-                                           <td colspan="12"><?=$rows['Class'] ?></td>
+                                          <td colspan="12"><?=$pro->sqLx('students','sn', $rows['sn'],'firstname')?><?=$pro->sqLx1('students','sn', $rows['sn'],'lastname')?></td>
+                                           <td colspan="12"><?=$pro->sqLx('subjects', 'sn', $rows['subject'], 'subjects')?></td>
+                                           <td colspan="12"><?=$pro->sqLx('class', 'sn', $rows['category'], 'class')?></td>
                                             <td colspan="12"><?=$rows['CA1'] ?></td>
                                              <td colspan="12"><?=$rows['CA2'] ?></td>
                                               <td colspan="12"><?=$rows['Exam'] ?></td>

@@ -467,13 +467,13 @@ function Addresult(){
         $student = $studentid[$e];
         $c1 = $ca1[$e];
         $c2 = $ca2[$e];
-        $cla = $class[$e];
+        $term = $this->SqLx('terms', 'status', 1, 'term');
         $exa = $exam[$e];
         $total =(int)$c1 + (int)$c2 + (int)$exa;
         if(empty($c1) || empty($c2) || empty($exa)){
             $report = 'input all fields'; $count = 1; return;
         }
-        $sql = "INSERT INTO add_results(studentid, class, subject, ca1, ca2, exam, total) VALUES('$student', '$cla', '$subject', '$c1', '$c2','$exa', '$total')";
+        $sql = "INSERT INTO add_results(studentid, class, subject, ca1, ca2, term, exam, total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$term', '$exa', '$total')";
         mysqli_query($con, $sql);
     }
     $report = 'results added successfully';
