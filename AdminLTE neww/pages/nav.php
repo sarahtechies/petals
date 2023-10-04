@@ -169,6 +169,12 @@
                   <p>Class Result</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="resultprofile.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Result Profile</p>
+                </a>
+              </li>
 </ul>
 <li class="nav-item">
             <a href="#" class="nav-link">

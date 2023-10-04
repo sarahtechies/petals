@@ -224,8 +224,18 @@ require("myclass.php");
 
                 </tr>
           </thead>
+          <?php
+          if(isset($_POST['resultid'])) {
+            $resultid = $_POST['resultid'];
+            $sql = $con->query("SELECT * FROM add_results WHERE resultid = '$resultid'");
+          }
+            while($rows= mysqli_fetch_assoc($sql));
+            
+            ?>
+              
           <tbody id="result_body">
             <tr></tr>
+            
 
           </tbody>
          </table>
