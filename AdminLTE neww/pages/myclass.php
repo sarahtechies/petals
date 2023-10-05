@@ -75,6 +75,9 @@ class Profile{
                 elseif (array_key_exists('resultSum', $_POST)) {
                     $this->resultSum();
                 }
+                elseif (array_key_exists('broadsheet', $_POST)) {
+                    $this->broadsheet();
+                }
                 
         }
     public function Signup(){
@@ -567,6 +570,12 @@ function checkResultSum(){
        $this->checkResultProfile($stid, $class); 
     }
     return;
+
+    function broadsheet(){
+        global $con;
+        $sql = $con->query("SELECT * FROM results_sum WHERE resultid = ''$resultid");
+        return $resultid;
+    }
 
 }
     

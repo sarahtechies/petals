@@ -161,7 +161,7 @@ $pro->checkResultSum();
                             <td><?= $pro->realTerm($rows[('term')]) ?>
                             <td><?=$pro->SqLx('class', 'sn', $rows['class'], 'category') ?></td>
                             <td><?= $rows['created_at'] ?></td>
-                            <td><a class="btn btn-xs btn-info" href="broadsheet.php"><i class="fas fa-eye"></i> View</a></td>
+                            <td><a class="btn btn-xs btn-info" name="broadsheet" href="broadsheet.php?sn=<?=$rows['sn']?>"><i class="fas fa-eye"></i> View</a></td>
                         </tr>
 
                         <?php } ?>

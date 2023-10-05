@@ -155,6 +155,11 @@ require("myclass.php");
         </h3>
        </div>
        <div class="card-body p-1">
+         <?php 
+                $sn = $_GET['sn'];
+                $sql = $con->query("SELECT * FROM  students WHERE sn = '$sn'");
+                 $rows = mysqli_fetch_assoc($sql);
+                 ?>
         <div class="table-responsive">
          <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
           <thead>
@@ -164,11 +169,11 @@ require("myclass.php");
             <p class="text-center">FIRST TERM,2023/2024 ACADEMIC SESSION
            <tr>
             
-            <th colspan="3">Name:</th>
-            <th colspan="3">Registration No:</th>
+            <th colspan="3">Name:<?= $rows['surname']?><?= $rows['firstname']?></th>
+            <th colspan="3">Registration No:<?= $rows['regnumber']?></th>
             <th colspan="2">Result ID:</th>
-            <th colspan="2">Class:</th>
-            <th colspan="2">Gender:</th>
+            <th colspan="2">Class:<?=$pro->sqLx('class', 'sn', $rows['category'] , 'category') ?></th>
+            <th colspan="2">Gender:<?= $rows['gender']?></th>
             
            </tr>
            <tr>
