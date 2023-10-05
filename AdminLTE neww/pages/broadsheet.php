@@ -155,10 +155,11 @@ require("myclass.php");
         </h3>
        </div>
        <div class="card-body p-1">
-         <?php 
+                 <?php 
                 $sn = $_GET['sn'];
                 $sql = $con->query("SELECT * FROM  students WHERE sn = '$sn'");
                  $rows = mysqli_fetch_assoc($sql);
+                 $rid = $pro->getResultId($rows['sn']);
                  ?>
         <div class="table-responsive">
          <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
@@ -168,12 +169,12 @@ require("myclass.php");
             <p class="text-center">TERMLY CONTINOUS ASSESSMENT</p>
             <p class="text-center">FIRST TERM,2023/2024 ACADEMIC SESSION
            <tr>
-            
-            <th colspan="3">Name:<?= $rows['surname']?><?= $rows['firstname']?></th>
-            <th colspan="3">Registration No:<?= $rows['regnumber']?></th>
-            <th colspan="2">Result ID:</th>
-            <th colspan="2">Class:<?=$pro->sqLx('class', 'sn', $rows['category'] , 'category') ?></th>
-            <th colspan="2">Gender:<?= $rows['gender']?></th>
+           
+            <th colspan="3">Name: <?= $rows['surname']?> <?= $rows['firstname']?></th>
+            <th colspan="3">Registration No: <?= $rows['regnumber']?></th>
+            <th colspan="2">Result ID: <?=$rid ?></th>
+            <th colspan="2">Class: <?=$pro->sqLx('class', 'sn', $rows['category'] , 'category') ?></th>
+            <th colspan="2">Gender: <?= $rows['gender']?></th>
             
            </tr>
            <tr>
@@ -190,21 +191,35 @@ require("myclass.php");
             <th>Grade</th>
             <th>Remark</th>
 
-            <!-- <th class="ca1">CA1</th>
-            <th class="ca2">CA2</th>
-            <th class="ca3">CA3</th>
-            <th class="exam">Exam</th>
-            <th>Total</th>
-
-            <th class="ca1">CA1</th>
-            <th class="ca2">CA2</th>
-            <th class="ca3">CA3</th>
-            <th class="exam">Exam</th>
-            <th>Total</th>
-            <th>£f</th> -->
-
            </tr>
+ <tr class="single">
+  <?php $sql = $con->query("SELECT * FROM  add_results WHERE sn = '$sn'");
+                 $rows = mysqli_fetch_assoc($sql);
+                 $rid = $pro->getResultId($rows['sn']); ?>
+                                <td><?= $pro->sqLx ('subjects','sn',$rows['subject'],'subject') ?></td>
+                                <td><?= $rows['ca1'] ?></td>
+                                <td><?= $rows['ca2'] ?></td>
+                                 <td></td>
+                                <td><?= $rows['exam'] ?></td>
+                                <td><?= $rows['total'] ?></td>
+                                <td></td>
+                               
 
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td></td>
+
+                            </tr>
            <tr>
             <th colspan="3">Subjects:</th>
             <th colspan="3">Total Score:</th>
@@ -230,11 +245,11 @@ require("myclass.php");
                 </tr>
           </thead>
           <?php
-          if(isset($_POST['resultid'])) {
-            $resultid = $_POST['resultid'];
-            $sql = $con->query("SELECT * FROM add_results WHERE resultid = '$resultid'");
-          }
-            while($rows= mysqli_fetch_assoc($sql));
+          // if(isset($_POST['resultid'])) {
+          //   $resultid = $_POST['resultid'];
+          //   $sql = $con->query("SELECT * FROM add_results WHERE resultid = '$resultid'");
+          // }
+          //   while($rows= mysqli_fetch_assoc($sql));
             
             ?>
               

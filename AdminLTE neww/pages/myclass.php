@@ -573,19 +573,21 @@ function checkResultSum(){
 
     function broadsheet(){
         global $con;
-        $sql = $con->query("SELECT * FROM results_sum WHERE resultid = ''$resultid");
+        $sql = $con->query("SELECT * FROM results_sum WHERE resultid = '$resultid'");
         return $resultid;
     }
 
 }
-    
+
+ function getResultId($sid) {
+    global $con;    
+                $sql = $con->query("SELECT * FROM  results_sum WHERE stid = '$sid'");
+                 $rows = mysqli_fetch_assoc($sql);
+     return $rows['sn'];
 }
 
-    
-
-      
-
-
+ //   
+}
 $pro = new Profile();
 
 ?>

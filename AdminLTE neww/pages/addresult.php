@@ -276,9 +276,9 @@ require("myclass.php");
                                              <tr>
                                                  <td colspan="12"><?=$i++ ?></td> 
                                          
-                                          <td colspan="12"><?= $pro->sqLx('students', 'sn', $rows['sn'],'surname') ?></td>
-                                           <td colspan="12"><?= $rows['subject']?></td>
-                                           <td colspan="12"><?= $rows['class']?></td>
+                                          <td colspan="12"><?= $pro->sqLx('students', 'sn', $rows['sn'],'surname') ?> <?= $pro->sqLx('students', 'sn', $rows['sn'],'firstname') ?></td>
+                                           <td colspan="12"><?= $pro->sqLx('subjects', 'sn', $rows['subject'], 'subject')?></td>
+                                           <td colspan="12"><?= $pro->sqLx('class', 'sn', $rows['class'], 'category')?></td>
                                             <td colspan="12"><?=$rows['ca1'] ?></td>
                                              <td colspan="12"><?=$rows['ca2'] ?></td>
                                               <td colspan="12"><?=$rows['exam'] ?></td>
