@@ -10,9 +10,9 @@ $db = new mysqli('localhost', 'root', '', 'chatapp');
 
 
 
-if (!$con)  {
+if (!$db)  {
 
-    die(mysqli_error($con));
+    die(mysqli_error($db));
 }
 
 class Profile{
@@ -27,6 +27,7 @@ public function signUp($name, $email, $phonenumber, $password){
     $pass = password_hash($password, PASSWORD_BCRYPT);
     
     $sql = $db->query("INSERT INTO user(name, email, phone, password) VALUES ('$name', '$email', '$phonenumber', '$pass')");
+    if($sql){echo "operation Succesful";}
     
 }
 
@@ -35,7 +36,7 @@ public function signUp($name, $email, $phonenumber, $password){
 $pro = new Profile();
 
 if(isset($_GET['type'])){extract($_GET);
-   if($type == 'signUp'){$pro->signUp($name, $email, $phone, $pass);}
+   if($type == 'signup'){$pro->signUp($name, $email, $phonenumber, $password); }
 }
-// $pro->signUp('akintadesarah', 'sarah@gmail.com', '08020272790', '123456');
+ //$pro->signUp('akintade', 'sarah@gmail.com', '08020272790', '123456');
 ?>

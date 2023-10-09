@@ -58,16 +58,20 @@
             <input type="text" class="form-control" name="password" id="password">
         </div>
     <div class = "class-footer">
-        <button class = "btn btn-primary " onclick="AddUser()" style="margin-left: 110px;" name = "signUp">Create Account</button>
+        <button type="button" class = "btn btn-primary " onclick="AddUser()" style="margin-left: 110px;" name = "signUp">Create Account</button>
     </div>
  </div>
 </div>
 
 </form>
 </div>
+    
+    
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
+     <script src="jquery.min.js"></script>
+
+ <script>
 
         function AddUser(){
             var name = document.getElementById('name').value;
@@ -75,21 +79,20 @@
             var phonenumber = document.getElementById('phonenumber').value;
             var password = document.getElementById('password').value;
 
-            alert(name);
-
+            // alert(name);
+           // console.log(name)
 
             $.ajax({
-
                 type:'get',
-                url:'myclass.php?name='+name+'?email='+email+'?phone='+phone+'?password='+pass+'? type= signup'  
-
+                url:'myclass.php?name='+name+'&email='+email+'&phonenumber='+phonenumber+'&password='+password+'&type=signup'  
             }).done(function(data){
-                console.log(data)
+                console.log(data);
 
             });
         }
 
     </script>
-    <script src="jquery.min.js"></script>
+
+   
 </body>
 </html>
