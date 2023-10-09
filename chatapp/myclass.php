@@ -17,12 +17,7 @@ if (!$con)  {
 
 class Profile{
     function __construct() {
-        if(array_key_exists('Login', $_POST)) {
-            $this->Login();
-            }
-        elseif (array_key_exists('signup', $_POST)) {
-                $this->signup();                 
-        }
+       
     }
 
 
@@ -38,5 +33,9 @@ public function signUp($name, $email, $phonenumber, $password){
 }
 
 $pro = new Profile();
-$pro->signUp('akintadesarah', 'sarah@gmail.com', '08020272790', '123456');
+
+if(isset($_GET['type'])){extract($_GET);
+   if($type == 'signUp'){$pro->signUp($name, $email, $phone, $pass);}
+}
+// $pro->signUp('akintadesarah', 'sarah@gmail.com', '08020272790', '123456');
 ?>
