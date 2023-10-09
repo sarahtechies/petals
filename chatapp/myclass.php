@@ -1,6 +1,19 @@
 <?php
 
-$con = new mysqli('localhost', 'root', '', 'chatapp');
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "schoolportal";
+
+
+$db = new mysqli('localhost', 'root', '', 'chatapp');
+
+
+
+if (!$con)  {
+
+    die(mysqli_error($con));
+}
 
 class Profile{
     function __construct() {
@@ -13,16 +26,17 @@ class Profile{
     }
 
 
-public function signUp($name, $email, $phonenumber, $passsword){
-    global $con;
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phonenumber = $_POST['phonenumber'];
-    $password = $_POST['password'];
-    $sql = $con->query"INSERT INTO user(name, email, phonenumber, password) VALUES ('$name', '$email', '$phonenumber', '$password')";
+public function signUp($name, $email, $phonenumber, $password){
+    global $db;
+    
     $pass = password_hash($password, PASSWORD_BCRYPT);
+    
+    $sql = $db->query("INSERT INTO user(name, email, phone, password) VALUES ('$name', '$email', '$phonenumber', '$pass')");
+    
 }
 
 }
 
+$pro = new Profile();
+$pro->signUp('akintadesarah', 'sarah@gmail.com', '08020272790', '123456');
 ?>
