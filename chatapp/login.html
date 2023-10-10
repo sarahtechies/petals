@@ -42,7 +42,7 @@
      </div>
     </div>
     <div class="class-footer">
-     <button class="btn btn-primary" onclick="LogIn()" type="button" style="margin-left:150px;" name="LogIn">Log In</button>
+     <button class="btn btn-primary" onclick="LogIn()" type="button" style="margin-left:150px;" name="login">Log In</button>
     </div>
 
    </div>
@@ -57,15 +57,15 @@
 
  <script>
   function LogIn(){
-   var name= document.getElementById('name').value;
+  
    var email= document.getElementById('email').value;
-   var phone= document.getElementById('phone').value;
+   
    var pass= document.getElementById('password').value;
    
    $.ajax({
     type:'get',
-    url:'myclass.php?name='+name+'&email='+email+'&phone='+phone+'&password='+pass+
-    '&type=signup'
+    url:'myclass.php?email='+email+'&password='+pass+
+    '&type=login'
    }).done(function(data){
     alert(data);
    });
