@@ -25,26 +25,16 @@
   <div class="container">
    <div class="card">
     <div class="card-header">
-     <h4>Create Account</h4>
+     <h4>Log In</h4>
     </div>
-    <div class="card-body">
-     <label >Name</label>
-     <div class="form-group">
-      <input type="text" class="form-control" name="name" id="name">
-     </div>
-    </div>
+    
 <div class="card-body">
      <label >Email</label>
      <div class="form-group">
       <input type="email" class="form-control" name="email" id="email">
      </div>
     </div>
-    <div class="card-body">
-     <label >Phone</label>
-     <div class="form-group">
-      <input type="tel" class="form-control" name="phone" id="phone">
-     </div>
-    </div>
+    
     <div class="card-body">
      <label >Password</label>
      <div class="form-group">
@@ -52,7 +42,7 @@
      </div>
     </div>
     <div class="class-footer">
-     <button class="btn btn-primary" onclick="AddUsser()" type="button" style="margin-left:150px;" name="signup">Sign Up</button>
+     <button class="btn btn-primary" onclick="LogIn()" type="button" style="margin-left:150px;" name="LogIn">Log In</button>
     </div>
 
    </div>
@@ -66,7 +56,7 @@
  <script src="jquery.min.js"></script>
 
  <script>
-  function AddUsser(){
+  function LogIn(){
    var name= document.getElementById('name').value;
    var email= document.getElementById('email').value;
    var phone= document.getElementById('phone').value;
