@@ -25,12 +25,16 @@ public function signUp($name, $email, $phonenumber, $password){
     global $db;
     
     $pass = password_hash($password, PASSWORD_BCRYPT);
-    
+
+    $sql = $db->query("SELECT * FROM user WHERE email = '$email' OR phone = '$phone'");
+    if(mysqli_num_rows($sql) > 0) {
+    echo "email or phone already exists";
+ }else{
     $sql = $db->query("INSERT INTO user(name, email, phone, password) VALUES ('$name', '$email', '$phonenumber', '$pass')");
     if($sql){echo "operation Succesful";}
     
-}
 
+ }
 }
 
 $pro = new Profile();
