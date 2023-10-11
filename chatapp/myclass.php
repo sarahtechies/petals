@@ -8,14 +8,14 @@ class Profile{
 
  }
 
- function SignUp($name, $email, $phone, $password){
+ function SignUp($name, $email, $picture, $phone, $password){
   global $db;
   $pass = password_hash($password, PASSWORD_BCRYPT);
   $sql = $db->query("SELECT * FROM user WHERE email = '$email' AND phone ='$phone'  ");
   if(mysqli_num_rows($sql) > 0){
    echo "email or phone already exist";
   }else{
-   $sql = $db->query("INSERT INTO user (name, email, phone, password) VALUES('$name', '$email', '$phone', '$pass')");
+   $sql = $db->query("INSERT INTO user (name, email, picture, phone, password) VALUES('$name', '$email', '$picture', '$phone', '$pass')");
    if ($sql) {
     echo "operation successful";
    }
@@ -34,8 +34,8 @@ class Profile{
     $rows = mysqli_fetch_assoc($sql);
     if(password_verify($password, $rows['password'])){
         $_SESSION['id'] = $rows['id'];
-        header('location:chat.html');
-        echo 'login success';
+       
+        echo 'success';
         return;
     }
     echo 'invalid login';
@@ -45,7 +45,7 @@ class Profile{
 
 $pro = new Profile();
 if(isset($_GET['type'])){extract($_GET);
- if($type=='signup'){$pro->SignUp($name, $email, $phone, $password);
+ if($type=='signup'){$pro->SignUp($name, $email, $picture, $phone, $password);
  }
 }
 

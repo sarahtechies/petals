@@ -21,7 +21,7 @@
  </style>
 </head>
 <body>
- <form action="" method="POST">
+ <form action="" method="POST" enctype="multipart/form-data">
   <div class="container">
    <div class="card">
     <div class="card-header">
@@ -37,6 +37,12 @@
      <label >Email</label>
      <div class="form-group">
       <input type="email" class="form-control" name="email" id="email">
+     </div>
+    </div>
+     <div class="card-body">
+     <label >picture</label>
+     <div class="form-group">
+      <input type="file" class="form-control" name="picture" id="picture" accept="upload/png, upload/jpg, upload/jpeg">
      </div>
     </div>
     <div class="card-body">
@@ -69,12 +75,21 @@
   function AddUsser(){
    var name= document.getElementById('name').value;
    var email= document.getElementById('email').value;
+    var picture = document.getElementById('picture').value;
    var phone= document.getElementById('phone').value;
    var pass= document.getElementById('password').value;
+    picture.addEventListener('change', function(){
+        const reader = new FileReader();
+        reader.addEventListener('load', () =>{
+            uploaded_image = reader.result;
+        })
+        reader.readAsDataURL(this.files[0]);
+    })
+  
    
    $.ajax({
     type:'get',
-    url:'myclass.php?name='+name+'&email='+email+'&phone='+phone+'&password='+pass+
+    url:'myclass.php?name='+name+'&email='+email+'&picture='+picture+'&phone='+phone+'&password='+pass+
     '&type=signup'
    }).done(function(data){
     alert(data);

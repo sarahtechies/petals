@@ -67,7 +67,10 @@
     url:'myclass.php?email='+email+'&password='+pass+
     '&type=login'
    }).done(function(data){
-    alert(data);
+    if(data ='success'){
+        window.location.replace('chatting.html')
+    }
+        alert(data)
    });
 
   }
