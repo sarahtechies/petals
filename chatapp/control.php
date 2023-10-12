@@ -47,11 +47,22 @@ class Profile{
     return;
  }
 
+ function lastChat($id){
+  global $db;
+  $sql = $db->query("SELECT chat FROM chat WHERE id='$id' OR id2='$id' ORDER BY sn DESC LIMIT 1");
+  $row = mysqli_fetch_assoc($sql);
+  if(mysqli_num_rows($sql)==0){return 'Hi, I am available!';}
+  return $row['chat'];
+ }
+
 function AddChat($chat){
   global $db;
+  $time = time();
   $id = $_SESSION['id'];
   $id2 = $_SESSION['id2'];
   $db->query("INSERT INTO chat (id,id2,chat) VALUES ('$id','$id2','$chat')");
+  $db->query("UPDATE user SET updated_at='$time' WHERE id='$id2' ");
+  $db->query("SELECT * FROM chat WHERE id='$id' OR id2='$id2'");
   echo 1; 
 }
 

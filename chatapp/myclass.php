@@ -10,11 +10,14 @@ if(isset($_GET['type'])){extract($_GET);
  if($type=='login'){$pro->LogIn($email, $password); }
 
  if($type=='contact'){
+    $id = $_SESSION['id'];
 $user = [];
-$sql = $db->query("SELECT * FROM user");
+$sql = $db->query("SELECT * FROM user WHERE id != '$id' ORDER BY updated_at DESC ");
 while($row = mysqli_fetch_assoc($sql)){
-    $time = date('h:i A',strtotime($row['created_at']));
-$user[] = ['id'=>$row['id'],'email'=>$row['email'],'picture'=>$row['picture'],'name'=>$row['name'],'time'=>$time];
+    $id = $row['id'];
+    $lastchat = $pro->lastChat($id);
+    $time = date('h:i A',$row['updated_at']);
+$user[] = ['id'=>$id,'email'=>$lastchat,'picture'=>$row['picture'],'name'=>$row['name'],'time'=>$time];
 }
 echo json_encode($user);
  }
@@ -33,6 +36,11 @@ echo json_encode($rows);
 
 if($type=='newchat'){
     $pro->AddChat($chat);
+}
+
+
+if($type=='myid'){
+    echo $_SESSION['id'];
 }
 
 

@@ -45,7 +45,7 @@ echo 'Success '.$_SESSION['id'];
   <div class="container">
    <div class="card">
     <div class="card-header">
-     <h4>Upload Profile Picture <?= $_SESSION['id'] ?></h4>
+     <h4>Upload Profile Picture <?= $pro->lastChat(3) ?></h4>
     </div>
      
 <div class="card-body">

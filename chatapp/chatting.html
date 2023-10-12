@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="tempusdominus-bootstrap-4.min.css">
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -158,10 +158,12 @@
     </div>
 </div>
 <!-- partial -->
+<script src="bootstrap.bundle.min.js"></script>
   <script  src="script.js"></script>
    <script src="jquery.min.js"></script>
 <script>
-
+function loadContact(){
+    $('#people').html('');
 $.ajax({
     type: 'get',
     url: 'myclass.php?type=contact'
@@ -174,16 +176,30 @@ $('#people').append(person(user[i]['name'],user[i]['email'],user[i]['picture'],u
 i++;
 }
 });
+}
+loadContact();
+
 function person(name,email,picture,time,id){
-return `<li onclick="activeUser('`+id+`','`+name+`')" class="person" data-chat="person6">
+return `<li onclick="activeUser('`+id+`','`+name+`')" class="person" data-chat="person6" id="user`+id+`">
                     <img src="`+picture+`" alt="" />
                     <span class="name">`+name+`</span>
                     <span class="time">`+time+`</span>
-                    <span class="preview">`+email+`</span>
+                    <span class="preview" id="prev`+id+`">`+email+`</span>
                 </li>`;
 }
 
+function lastUser(){
+ var id = localStorage.getItem('activeid');
+ var name = localStorage.getItem('activename'); 
+   activeUser(id,name);
+}
+
+lastUser();
+
 function activeUser(id,name){
+    localStorage.setItem('activeid',id);
+    localStorage.setItem('activename',name);
+    myId();
 $('#activeUser').html(name);
 $('#allchat').html('');
 $.ajax({
@@ -195,14 +211,28 @@ $.ajax({
 //alert(data);
 var i = 0;
 while(i < chat.length){
-$('#allchat').append(allChats(id,chat[i]['id'],chat[i]['chat']));
+$('#allchat').append(allChats(chat[i]['id'],chat[i]['id2'],chat[i]['chat']));
 i++;
 }
 })
+document.getElementById('chat').focus();
 }
 
+function myId(){
+    $.ajax({
+        type: 'get',
+        url: 'myclass.php?type=myid'
+    }).done(function(data){
+       localStorage.setItem('myid',data);
+    });
+}
+
+//myId();
+
 function allChats(id,id2,chat){
-if(id==id2){
+   var myid = localStorage.getItem('myid');
+
+if(Number(myid)==id){
 return `<div class="bubble me">
                     `+chat+`
                 </div>`;
@@ -215,17 +245,22 @@ return `<div class="bubble me">
 
 function newChat(){
 var chat = document.getElementById('chat').value;
+var id2 = localStorage.getItem('activeid');
 $.ajax({
     type: 'get',
     url: 'myclass.php?chat='+chat+'&type=newchat'
 }).done(function(data){
     //do something with data here;
-    $('#allchat').append(`<div class="bubble me">
+var x = `<div class="bubble me">
                     `+chat+`
-                </div>`);
+                </div>`;
+    $('#allchat').append(x);
+    $('#prev'+id2).html(x);
 document.getElementById('chat').value='';
 document.getElementById('chat').focus();
 });
+loadContact();
+//document.getElementById('user'+id2).style.display='none';
 }
 </script>
 </body>
