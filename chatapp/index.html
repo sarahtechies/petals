@@ -75,16 +75,8 @@
   function AddUsser(){
    var name= document.getElementById('name').value;
    var email= document.getElementById('email').value;
-    var picture = document.getElementById('picture').value;
    var phone= document.getElementById('phone').value;
    var pass= document.getElementById('password').value;
-    picture.addEventListener('change', function(){
-        const reader = new FileReader();
-        reader.addEventListener('load', () =>{
-            uploaded_image = reader.result;
-        })
-        reader.readAsDataURL(this.files[0]);
-    })
   
    
    $.ajax({

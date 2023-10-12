@@ -1,23 +1,22 @@
-
 <?php 
- session_start();ob_start();
- include ("myclass.php");
-if(isset($_SESSION['id'])){
+session_start(); ob_start();
+include ("control.php");
+//unset($_SESSION['id']);
 $id = $_SESSION['id'];
-$sql= $con->query("SELECT * FROM user");
-$rows['id'] = mysqli_fetch_assoc($sql);
+//echo $id;
+
+ 
+if(isset($_POST['change'])){
 
 $target = 'upload/';
 	$targetfile = $target.$_FILES['picture']['name']; //upload/picturename.jpg
 	
 	move_uploaded_file($_FILES['picture']['tmp_name'],$targetfile);
-    $db->query("UPDATE user SET  picture ='$targetfile' WHERE id= 2 ");
-echo 'Success';
+    $db->query("UPDATE user SET  picture='$targetfile' WHERE id='$id' ");
+echo 'Success '.$_SESSION['id'];
 
 }
  ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,13 +45,12 @@ echo 'Success';
   <div class="container">
    <div class="card">
     <div class="card-header">
-     <h4>Log In</h4>
+     <h4>Upload Profile Picture <?= $_SESSION['id'] ?></h4>
     </div>
-    
+     
 <div class="card-body">
-     <label >Email</label>
-     <div class="form-group">
-      
+     <label >Select Picture</label>
+     <div class="form-group">      
        <input type="file" class="custom-file-input mt-4" id="picture" name="picture">
      </div>
     </div>
