@@ -68,12 +68,19 @@ function AddChat($chat){
 
 function addContact($email){
   global $db;
-  $sid = $_SESSION['id'];
+  $id = $_SESSION['id'];
   $sql = $db->query("SELECT * FROM user WHERE email = '$email'");
+  if(mysqli_num_rows($sql) == 0){
+    return 'Email not found';
+  }
   $rows = mysqli_fetch_assoc($sql);
   $cid = $rows['id'];
+  $sql = $db->query("SELECT * FROM contact WHERE cid = '$cid'");
+  if(mysqli_num_rows($sql) > 0)
+  return "contact already exists";
+else
   $sql = $db->query("INSERT INTO contact(id,cid) VALUES ('$id', '$cid')");
-  return;
+  return 'Operation Successful';
 }
 
 
