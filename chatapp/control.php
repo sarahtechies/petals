@@ -84,6 +84,17 @@ else
 }
 
 
+function Contact(){
+global $db;
+$id = $_SESSION['id'];
+$sql = $db->query("SELECT * FROM contact WHERE id = '$id'");
+while ($rows = mysqli_fetch_assoc($sql)){
+  $contact[] = $rows['$cid'];
+}
+return $contact;
+}
+
+
 };
 
 $pro = new Profile();
