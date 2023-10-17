@@ -8,12 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="tempusdominus-bootstrap-4.min.css">
 <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="tempusdominus-bootstrap-4.min.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="wrapper">
     <div class="container">
+        <form method = "POST" style="height: 40px";
+        padding-top: 20px;
+        padding-left: 20px;>
+        
+        <input type="email" name="email" id="email" style="border: 1px solid gray;
+        border-radius: 5px;">
+        <button class="btn btn-primary" onclick="addContact()" type="button" name="addcontact">Add Contact</button>
+        </form>
+
         <div class="left">
             <div class="top">
                 <input type="text" placeholder="Search" />
@@ -262,6 +271,21 @@ document.getElementById('chat').focus();
 loadContact();
 //document.getElementById('user'+id2).style.display='none';
 }
+
+function addContact(){
+    var email = document.getElementById('email').value;
+    $.ajax({
+        type:'get',
+        url:'myclass.php?email='+email+'&type=addcontact'
+    }).done(function(data){
+        alert(data)
+
+    })
+}
 </script>
+ <script src="jquery.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

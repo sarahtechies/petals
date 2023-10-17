@@ -66,6 +66,16 @@ function AddChat($chat){
   echo 1; 
 }
 
+function addContact($email){
+  global $db;
+  $sid = $_SESSION['id'];
+  $sql = $db->query("SELECT * FROM user WHERE email = '$email'");
+  $rows = mysqli_fetch_assoc($sql);
+  $cid = $rows['id'];
+  $sql = $db->query("INSERT INTO contact(id,cid) VALUES ('$id', '$cid')");
+  return;
+}
+
 
 };
 

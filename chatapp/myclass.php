@@ -43,6 +43,9 @@ if($type=='myid'){
     echo $_SESSION['id'];
 }
 
+if($type=='addcontact'){
+   $pro->addcontact($email);
+}
 
 
 
