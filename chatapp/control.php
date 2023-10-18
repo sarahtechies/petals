@@ -9,14 +9,14 @@ class Profile{
 
  }
 
- function SignUp($name, $email, $picture, $phone, $password){
+ function SignUp($name, $email, $phone, $password){
   global $db;
   $pass = password_hash($password, PASSWORD_BCRYPT);
   $sql = $db->query("SELECT * FROM user WHERE email = '$email' AND phone ='$phone'  ");
   if(mysqli_num_rows($sql) > 0){
    echo "email or phone already exist";
   }else{
-   $sql = $db->query("INSERT INTO user (name, email, picture, phone, password) VALUES('$name', '$email', '$picture', '$phone', '$pass')");
+   $sql = $db->query("INSERT INTO user (name, email, phone, password) VALUES('$name', '$email', '$phone', '$pass')");
    if ($sql) {
     echo "operation successful";
    }
