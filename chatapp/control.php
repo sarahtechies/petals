@@ -84,28 +84,28 @@ else
 }
 
 
-// function myContact()
-//   {
-//     global $db;
-//     $id = $_SESSION['id'];
-//     $contact = [];
-//     $sql = $db->query("SELECT * FROM contact WHERE id = '$id'");
-//     while ($rows = mysqli_fetch_assoc($sql)) {
-//       $contact[] = $rows['cid'];
-//     }
-//     return $contact;
-//   }
+function myContact()
+  {
+    global $db;
+    $id = $_SESSION['id'];
+    $contact = [];
+    $sql = $db->query("SELECT * FROM contact WHERE id = '$id'");
+    while ($rows = mysqli_fetch_assoc($sql)) {
+      $contact[] = $rows['cid'];
+    }
+    return $contact;
+  }
 
-// function userName($id, $col = 'name')
-//   {
-//     global $db;
-//     $sql = $db->query("SELECT * FROM user WHERE id='$id' ");
-//     $row = mysqli_fetch_assoc($sql);
-//     return $row[$col];
-//   }
-// };
+function userName($id, $col = 'name')
+  {
+    global $db;
+    $sql = $db->query("SELECT * FROM user WHERE id='$id' ");
+    $row = mysqli_fetch_assoc($sql);
+    return $row[$col];
+  }
 
 
+};
 
 
 $pro = new Profile();

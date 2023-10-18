@@ -69,7 +69,7 @@ if (isset($_POST['CreateGroup'])) {
      </div>
      <label>Select Group Members</label>
 
-     <?php $id = $_SESSION['id'];
+     <!-- <?php $id = $_SESSION['id'];
      $sql = $db->query("SELECT * FROM contact WHERE id='$id' ");
      foreach ($sql as $row) { ?>
       <div class="form-group">
@@ -79,7 +79,7 @@ if (isset($_POST['CreateGroup'])) {
      <div class="form-group">
       <label><input type="checkbox" checked disabled> <?= $pro->userName($_SESSION['id']) ?></label>
      </div>
-    </div>
+    </div> -->
 
 
 
