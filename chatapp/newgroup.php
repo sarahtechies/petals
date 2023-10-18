@@ -15,13 +15,13 @@ if (isset($_POST['CreateGroup'])) {
   $member[] = $id;
   $gid = rand();
   $x = json_encode($member);
-  $db->query("INSERT INTO users (name,member,email,admin) VALUES ('$name','$x','$gid','$id') ");
+  $db->query("INSERT INTO user (name,member,email,admin) VALUES ('$name','$x','$gid','$id') ");
   $cid = mysqli_insert_id($db);
   $i = 0;
   while ($i < count($member)) {
    $e = $i++;
    $id = $member[$e];
-   $sql = $db->query("INSERT INTO contacts(id, cid) VALUES('$id', '$cid')");
+   $sql = $db->query("INSERT INTO contact(id, cid) VALUES('$id', '$cid')");
   }
  }
 }
@@ -70,7 +70,7 @@ if (isset($_POST['CreateGroup'])) {
      <label>Select Group Members</label>
 
      <?php $id = $_SESSION['id'];
-     $sql = $db->query("SELECT * FROM contacts WHERE id='$id' ");
+     $sql = $db->query("SELECT * FROM contact WHERE id='$id' ");
      foreach ($sql as $row) { ?>
       <div class="form-group">
        <label><input type="checkbox" value="<?= $row['cid'] ?>" name="member[]"> <?= $pro->userName($row['cid']) ?></label>
