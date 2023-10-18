@@ -96,6 +96,8 @@ function myContact()
     return $contact;
   }
 
+  function my
+
 function userName($id, $col = 'name')
   {
     global $db;

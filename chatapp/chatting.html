@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="tempusdominus-bootstrap-4.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="tempusdominus-bootstrap-4.min.css">
+
+<style>
+    .left{
+        overflow-x:hidden;
+        overflow-y: scroll;
+    }
+</style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -25,8 +32,8 @@
 
         <div class="left">
             <div class="top">
-                <input type="text" placeholder="Search" />
-                <a href="javascript:;" class="search"></a>
+                <input type="text" placeholder="Search" style="width: 150px;" />
+                <a href="javascript:;" class="search" id="search" onkeyup="mySearch()"></a>
             </div>
             <ul class="people" id="people">
               
@@ -277,6 +284,17 @@ function addContact(){
     $.ajax({
         type:'get',
         url:'myclass.php?email='+email+'&type=addcontact'
+    }).done(function(data){
+        alert(data)
+
+    })
+}
+
+function mySearch(){
+    var search = document.getElementById('search').value;
+    $.ajax({
+        type: 'get',
+        url:'myclass.php?search='+search+'&type=mySearch'
     }).done(function(data){
         alert(data)
 
