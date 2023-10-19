@@ -96,10 +96,8 @@ function myContact()
     return $contact;
   }
 
-  function my
 
-function userName($id, $col = 'name')
-  {
+function userName($id, $col = 'name'){
     global $db;
     $sql = $db->query("SELECT * FROM user WHERE id='$id' ");
     $row = mysqli_fetch_assoc($sql);

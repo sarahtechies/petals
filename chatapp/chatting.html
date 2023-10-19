@@ -182,8 +182,9 @@ function loadContact(){
     $('#people').html('');
 $.ajax({
     type: 'get',
-    url: 'myclass.php?type=contact'
+    url: 'myclass.php?type=contact&serach='+search
 }).done(function(data){
+    localStorage.setItem('mycontacts',data);
     var user = JSON.parse(data);
 //alert(data);
 var i = 0;
