@@ -15,13 +15,19 @@
         overflow-x:hidden;
         overflow-y: scroll;
     }
+    li{
+        list-style-type: none;
+    }
 </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="wrapper">
     <div class="container">
-        <form method = "POST" style="height: 40px";
+
+
+        <div class="left">
+        <form method = "POST" style="margin-top:10px; margin-left: 10px;";
         padding-top: 20px;
         padding-left: 20px;>
         
@@ -29,19 +35,18 @@
         height: 25px;
         width: 160px;
         border-radius: 9px;
-        margin: 2px" >
+        margin: 2px;" >
        
         <button class="btn btn-primary" onclick="addContact()" style="border: 1px solid #00b0ff;
         background-color: #00b0ff;
         color:white;
         padding: 6px;
-        border-radius: 5px;">Add Contact</button>
+        border-radius: 5px;
+        margin-left: 4px;">Add Contact</button>
         </form>
-
-        <div class="left">
             <div class="top">
-                <input type="text"  style="width: 169px;" placeholder="Search" id="search" onkeyup="mySearch(this.value)" />
-                <a href="javascript:;" class="search" ></a>
+                <input type="text"  style="width: 100%;" placeholder="Search" id="search" onkeyup="mySearch(this.value)" />
+                
             </div>
             <ul class="people" id="people">
               
