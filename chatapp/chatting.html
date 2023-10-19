@@ -25,15 +25,23 @@
         padding-top: 20px;
         padding-left: 20px;>
         
-        <input type="email" name="email" id="email" style="border: 1px solid gray;
-        border-radius: 5px;">
-        <button class="btn btn-primary" onclick="addContact()" type="button" name="addcontact">Add Contact</button>
+        <input type="email" name="email" id="email" style="border-radius: 5px;
+        height: 25px;
+        width: 160px;
+        border-radius: 9px;
+        margin: 2px" >
+       
+        <button class="btn btn-primary" onclick="addContact()" style="border: 1px solid #00b0ff;
+        background-color: #00b0ff;
+        color:white;
+        padding: 6px;
+        border-radius: 5px;">Add Contact</button>
         </form>
 
         <div class="left">
             <div class="top">
-                <input type="text" placeholder="Search" style="width: 150px;" />
-                <a href="javascript:;" class="search" id="search" onkeyup="mySearch()"></a>
+                <input type="text"  style="width: 169px;" placeholder="Search" id="search" onkeyup="mySearch(this.value)" />
+                <a href="javascript:;" class="search" ></a>
             </div>
             <ul class="people" id="people">
               
@@ -178,11 +186,11 @@
   <script  src="script.js"></script>
    <script src="jquery.min.js"></script>
 <script>
-function loadContact(){
+function loadContact(search=""){
     $('#people').html('');
 $.ajax({
     type: 'get',
-    url: 'myclass.php?type=contact&serach='+search
+    url: 'myclass.php?type=contact&search='+search
 }).done(function(data){
     localStorage.setItem('mycontacts',data);
     var user = JSON.parse(data);
@@ -290,17 +298,12 @@ function addContact(){
 
     })
 }
+function mySearch(search){
+    loadContact(search);
 
-function mySearch(){
-    var search = document.getElementById('search').value;
-    $.ajax({
-        type: 'get',
-        url:'myclass.php?search='+search+'&type=mySearch'
-    }).done(function(data){
-        alert(data)
-
-    })
 }
+
+
 </script>
  <script src="jquery.min.js"></script>
 <script src="bootstrap.bundle.min.js"></script>
